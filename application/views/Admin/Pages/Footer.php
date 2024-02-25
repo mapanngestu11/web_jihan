@@ -2,5 +2,5 @@
 	<div class="float-right d-none d-sm-block">
 		<!-- <b>Version</b> 3.1.0 -->
 	</div>
-	<strong>SMK Muhammadiyah 2 Kota Tangerang.</strong>
+	<strong>SMA Muhammadiyah 2 Kota Tangerang.</strong>
 </footer>

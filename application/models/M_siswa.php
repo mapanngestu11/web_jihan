@@ -8,6 +8,12 @@ class M_siswa extends CI_Model
     {
         return $this->db->get('tbl_data_siswa');
     }
+    function cek_nisn($nisn,$nama_siswa)
+    {
+        $this->db->where('nisn', $nisn);
+        $this->db->where('nama_siswa',$nama_siswa);
+        return $this->db->get('tbl_data_siswa');
+    }
     function detail_user($id_siswa)
     {
         $this->db->where('id_siswa',$id_siswa);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Feb 2024 pada 14.48
+-- Waktu pembuatan: 25 Feb 2024 pada 09.08
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 5.6.40
 
@@ -35,20 +35,21 @@ CREATE TABLE `tbl_data_absen` (
   `jam_absen` varchar(30) NOT NULL,
   `keterangan` text NOT NULL,
   `status` varchar(10) NOT NULL,
-  `file` text
+  `file` text,
+  `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tbl_data_absen`
 --
 
-INSERT INTO `tbl_data_absen` (`id_absen`, `nisn`, `nama_lengkap`, `jam_absen`, `keterangan`, `status`, `file`) VALUES
-(1, '123', '', '10:33:16', 'Tepat Waktu', 'siswa', NULL),
-(2, '123', '213', '', 'testing', 'guru', NULL),
-(3, '12345', 'testing', '07:57:08', 'asda', 'guru', NULL),
-(4, '213', 'testing', '07:58:03', 'testing', 'guru', '14f933b3d7df7070efd1aca990c6a629.jpg'),
-(5, '123', '', '10:33:16', 'Terlambat', 'siswa', NULL),
-(6, '123', '', '10:33:16', 'Terlambat', 'siswa', NULL);
+INSERT INTO `tbl_data_absen` (`id_absen`, `nisn`, `nama_lengkap`, `jam_absen`, `keterangan`, `status`, `file`, `waktu`) VALUES
+(1, '123', '', '10:33:16', 'Tepat Waktu', 'siswa', NULL, '2024-02-14 17:00:00'),
+(3, '12345', 'testing', '07:57:08', 'asda', 'guru', NULL, '2024-02-17 06:26:08'),
+(4, '213', 'testing', '07:58:03', 'testing', 'guru', '14f933b3d7df7070efd1aca990c6a629.jpg', '2024-02-18 06:26:08'),
+(5, '123', '', '13:40', 'Izin', 'siswa', NULL, '2024-02-19 18:40:25'),
+(6, '123', '', '10:33:16', 'Alpha', 'siswa', NULL, '2024-02-24 06:26:08'),
+(8, '123', 'guru', '14:09', 'Alpha', 'guru', NULL, '2024-02-24 19:08:31');
 
 -- --------------------------------------------------------
 
@@ -73,7 +74,7 @@ CREATE TABLE `tbl_data_guru` (
 --
 
 INSERT INTO `tbl_data_guru` (`id_guru`, `nip`, `nama_guru`, `jenis_kelamin`, `no_hp`, `mapel`, `keterangan`, `foto`, `waktu`) VALUES
-(2, '12345', 'guru', 'Laki-laki', '123', 'ipa', '123', '78f82d3da0216f307c2faf39cabc61e8.png', '2024-02-07 09:35:38');
+(2, '123', 'guru', 'Laki-laki', '123', 'ipa', '123', '78f82d3da0216f307c2faf39cabc61e8.png', '2024-02-24 07:36:45');
 
 -- --------------------------------------------------------
 
@@ -99,10 +100,10 @@ CREATE TABLE `tbl_data_siswa` (
 --
 
 INSERT INTO `tbl_data_siswa` (`id_siswa`, `nisn`, `nama_siswa`, `jenis_kelamin`, `no_hp`, `kelas`, `no_hp_ortu`, `keterangan`, `foto`, `waktu`) VALUES
-(1, '123', 'siswa', 'Laki-laki', '1234123', 'kelas', '123', '', 'c85a91ad50ab611d6e1909cd5da4f6de.png', '2024-02-05 22:20:45'),
-(2, '456', 'siswa', 'Laki-laki', '1234123', 'kelas', '123', '', 'c85a91ad50ab611d6e1909cd5da4f6de.png', '2024-02-19 13:14:16'),
-(3, '789', 'siswa', 'Laki-laki', '1234123', 'kelas', '123', '', 'c85a91ad50ab611d6e1909cd5da4f6de.png', '2024-02-19 13:14:21'),
-(4, '101112', 'siswa', 'Laki-laki', '1234123', 'kelas', '123', '', 'c85a91ad50ab611d6e1909cd5da4f6de.png', '2024-02-19 13:14:21');
+(1, '123', 'siswa', '', '', 'X', '', 'Izin', 'c85a91ad50ab611d6e1909cd5da4f6de.png', '2024-02-24 06:31:05'),
+(2, '456', 'siswa', 'Laki-laki', '1234123', 'XI', '123', '', 'c85a91ad50ab611d6e1909cd5da4f6de.png', '2024-02-24 06:31:11'),
+(3, '789', 'siswa', 'Laki-laki', '1234123', 'X', '123', '', 'c85a91ad50ab611d6e1909cd5da4f6de.png', '2024-02-24 06:31:14'),
+(4, '101112', 'siswa', 'Laki-laki', '1234123', 'X', '123', '', 'c85a91ad50ab611d6e1909cd5da4f6de.png', '2024-02-24 06:31:17');
 
 -- --------------------------------------------------------
 
@@ -168,7 +169,8 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id_user`, `nama_lengkap`, `hak_akses`, `username`, `password`, `status`, `waktu`) VALUES
-(1, 'admin', 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 0, '2024-02-05 02:20:23');
+(1, 'admin', 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 0, '2024-02-05 02:20:23'),
+(2, 'kepsek', 'kepsek', 'kepsek', '8561863b55faf85b9ad67c52b3b851ac', 0, '2024-02-25 07:58:54');
 
 --
 -- Indexes for dumped tables
@@ -218,7 +220,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT untuk tabel `tbl_data_absen`
 --
 ALTER TABLE `tbl_data_absen`
-  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_data_guru`
@@ -248,7 +250,7 @@ ALTER TABLE `tbl_jam`
 -- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

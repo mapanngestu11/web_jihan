@@ -26,6 +26,6 @@
   
 
   <title>
-    SMK Muhammadiyah 2 Kota Tangerang
+    SMA Muhammadiyah 2 Kota Tangerang
   </title>
 </head>

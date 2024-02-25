@@ -30,12 +30,12 @@ class Siswa  extends CI_Controller
         $id_siswa = $this->input->post('id_siswa');
         $this->M_siswa->delete_data($id_siswa);
         echo $this->session->set_flashdata('msg', 'deleted');
-        redirect('Admin/Galeri');
+        redirect('Admin/Siswa');
     }
 
     public function add()
     {
-     date_default_timezone_set("Asia/Jakarta");
+       date_default_timezone_set("Asia/Jakarta");
         $config['upload_path'] = './assets/upload/'; //path folder
         $config['allowed_types'] = 'jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
         $config['encrypt_name'] = TRUE; //nama yang terupload nantinya

@@ -4,7 +4,7 @@
   <div class="container">
     <div class="menu-bg-wrap">
       <div class="site-navigation">
-        <a href="<?php echo base_url('Homepage/') ?>" class="logo m-0 float-start">SMK Muhammadiyah 2 Kota Tangerang.</a>
+        <a href="<?php echo base_url('Homepage/') ?>" class="logo m-0 float-start">SMA Muhammadiyah 2 Kota Tangerang.</a>
 
         <ul
         class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"

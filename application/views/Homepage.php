@@ -36,7 +36,7 @@
       <div class="row justify-content-center align-items-center">
         <div class="col-lg-9 text-center">
           <h1 class="heading" data-aos="fade-up">
-            Absen Guru & Siswa SMK Muhammadiyah 2 Kota Tangerang.
+            Absen Guru & Siswa SMA Muhammadiyah 2 Kota Tangerang.
           </h1>
           <form
           action="<?php echo base_url() . 'Absen/cek'; ?>"

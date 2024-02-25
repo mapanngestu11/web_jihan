@@ -8,6 +8,13 @@ class M_guru extends CI_Model
     {
         return $this->db->get('tbl_data_guru');
     }
+    function cek_nip($nip,$nama_guru)
+    {
+      
+        $this->db->where('nip', $nip);
+        $this->db->where('nama_guru',$nama_guru);
+        return $this->db->get('tbl_data_guru');
+    }
     function detail_user($id_guru)
     {
         $this->db->where('id_guru',$id_guru);
@@ -42,9 +49,5 @@ class M_guru extends CI_Model
         $hsl = $this->db->get('tbl_data_guru');
         return $hsl;
     }
-    function cek_nip($cek)
-    {
-        $this->db->where('nip',$cek);
-        return $this->db->get('tbl_data_guru');
-    }
+
 }
